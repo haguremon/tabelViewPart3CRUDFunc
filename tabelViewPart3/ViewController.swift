@@ -11,20 +11,35 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
    
 
     @IBOutlet weak var tableView: UITableView!
-    var count = 1
+    //var count = 1
     @IBOutlet weak var label: UILabel!
     
     
     var todos = [String]()     //String型の空配列の準備
     @IBOutlet weak var addToTodoTextField: UITextField!
-    
+    @IBAction func createButton(_ sender: UIButton) {
+        //todos.append("\(count)")
+        //count += 1
+        UserDefaults.standard.set(todos, forKey: "todos")
+        if let text = addToTodoTextField.text {
+            todos.append(text)
+        } else {
+            print("")
+        }
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        tableView.dataSource = self
-        tableView.delegate = self
-        addToTodoTextField.delegate = self
+      //保存してる値がある場合は
+        if (UserDefaults.standard.array(forKey: "todos") != nil) {
+            todos = UserDefaults.standard.array(forKey: "todos") as! [String]
+        }
+            tableView.dataSource = self
+            tableView.delegate = self
+            addToTodoTextField.delegate = self
+            
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,19 +63,14 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         view.endEditing(true)
     }
     
-    
-    @IBAction func createButton(_ sender: UIButton) {
-        todos.append("\(count)")
-        count += 1
-        tableView.reloadData()
-    }
-    
+    //
+   
     @IBAction func deleteButton(_ sender: UIButton) {
         if todos.isEmpty {
             label.text = "セルが空ですよー"
             //tableView.reloadData()
         } else {
-            count -= 1
+            //count -= 1
             todos.removeLast()//remove要素がないとエラーが出る
             //items.remove(at: tableView.indexPath(for: <#T##UITableViewCell#>))
             tableView.reloadData()
