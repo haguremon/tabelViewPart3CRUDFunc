@@ -1,24 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tabelViewPart3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TrA-qg-MbV">
+                                <rect key="frame" x="32" y="65" width="347" height="357"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="357" id="4gi-rA-yaP"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="q7o-HY-16N">
+                                        <rect key="frame" x="0.0" y="24.5" width="347" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q7o-HY-16N" id="Owd-pB-bwX">
+                                            <rect key="frame" x="0.0" y="0.0" width="347" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98O-Yv-CzY">
+                                <rect key="frame" x="190" y="491" width="31" height="30"/>
+                                <state key="normal" title="追加"/>
+                                <connections>
+                                    <action selector="createButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Z3-tY-6Ty"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHO-tw-Zhy">
+                                <rect key="frame" x="190" y="578" width="31" height="30"/>
+                                <state key="normal" title="更新"/>
+                                <connections>
+                                    <action selector="upDateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mtz-Ea-9Bb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWr-rM-haz">
+                                <rect key="frame" x="184" y="624" width="46" height="30"/>
+                                <state key="normal" title="全消去"/>
+                                <connections>
+                                    <action selector="allDeleteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A0P-Cb-tmE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-if-MXn">
+                                <rect key="frame" x="160" y="450" width="87" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efe-aX-Q5c">
+                                <rect key="frame" x="191.5" y="529" width="31" height="30"/>
+                                <state key="normal" title="削除"/>
+                                <connections>
+                                    <action selector="deleteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pJi-r7-tpK"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cWr-rM-haz" firstAttribute="centerX" secondItem="efe-aX-Q5c" secondAttribute="centerX" id="1Vd-go-gBc"/>
+                            <constraint firstItem="TrA-qg-MbV" firstAttribute="centerX" secondItem="98O-Yv-CzY" secondAttribute="centerX" id="8RH-ew-igp"/>
+                            <constraint firstItem="cHO-tw-Zhy" firstAttribute="top" secondItem="efe-aX-Q5c" secondAttribute="bottom" constant="19" id="9Ij-co-3WM"/>
+                            <constraint firstAttribute="bottom" secondItem="cHO-tw-Zhy" secondAttribute="bottom" constant="288" id="DOR-Fl-RFQ"/>
+                            <constraint firstItem="TrA-qg-MbV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="DyH-nK-5Dl"/>
+                            <constraint firstItem="cWr-rM-haz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IVq-a7-NYD"/>
+                            <constraint firstItem="TrA-qg-MbV" firstAttribute="centerX" secondItem="cHO-tw-Zhy" secondAttribute="centerX" id="a65-f2-pvj"/>
+                            <constraint firstItem="TrA-qg-MbV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="bp5-Uq-uSr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TrA-qg-MbV" secondAttribute="trailing" constant="35" id="qfH-Sm-jhX"/>
+                            <constraint firstItem="cWr-rM-haz" firstAttribute="top" secondItem="cHO-tw-Zhy" secondAttribute="bottom" constant="16" id="r5g-gM-bMA"/>
+                            <constraint firstItem="98O-Yv-CzY" firstAttribute="top" secondItem="TrA-qg-MbV" secondAttribute="bottom" constant="69" id="vbd-ui-2L5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="Vw6-if-MXn" id="aL8-fs-le9"/>
+                        <outlet property="tableView" destination="TrA-qg-MbV" id="Me0-FC-HSz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="88.392857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
