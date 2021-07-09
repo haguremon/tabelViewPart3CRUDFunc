@@ -93,6 +93,7 @@
                     </view>
                     <connections>
                         <outlet property="addToTodoTextField" destination="eog-or-dVS" id="OJb-aj-gLD"/>
+                        <outlet property="button" destination="98O-Yv-CzY" id="As6-2s-D2o"/>
                         <outlet property="label" destination="Vw6-if-MXn" id="aL8-fs-le9"/>
                         <outlet property="tableView" destination="TrA-qg-MbV" id="Me0-FC-HSz"/>
                     </connections>

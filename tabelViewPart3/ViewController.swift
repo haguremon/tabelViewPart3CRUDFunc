@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
     //var count = 1
     @IBOutlet weak var label: UILabel!
     
+    @IBOutlet weak var button: UIButton!
     
     var todos = [String]()     //String型の空配列の準備
     @IBOutlet weak var addToTodoTextField: UITextField!
@@ -21,15 +22,17 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         //todos.append("\(count)")
         //count += 1
         UserDefaults.standard.set(todos, forKey: "todos")
+        //
         if let text = addToTodoTextField.text {
-            if text.isEmpty {
-                label.text = "値を入れてください"
+            if text.isEmpty || todos.isEmpty { //どちらかが空の時はボタンが押せない
+                //button.isEnabled = false
             } else {
-            todos.append(text)
+                button.isEnabled = true
+                todos.append(text)
             }
         }
-        
         tableView.reloadData()
+        
     }
     
     override func viewDidLoad() {
