@@ -24,8 +24,9 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         UserDefaults.standard.set(todos, forKey: "todos")
         //
         if let text1 = addToTodoTextField.text {
-            guard text1.isEmpty else {
+            if text1.count > 0 {
                 todos.append(text1)
+            } else {
                 return
             }
         }
