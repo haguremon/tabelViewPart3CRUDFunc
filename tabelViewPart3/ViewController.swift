@@ -63,8 +63,21 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         view.endEditing(true)
     }
     
-    //
-   
+    //この二つでスライドしてセルを削除する機能を作ることができる
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete { //editingStyleが指定されてない時があるのでif分を使う
+            tableView.beginUpdates()
+            todos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)//deleteRowsを決めてdeleteするアニメションを.fadeに指定
+            tableView.endUpdates()
+        }
+    }
+    
+    
     @IBAction func deleteButton(_ sender: UIButton) {
         if todos.isEmpty {
             label.text = "セルが空ですよー"
@@ -72,7 +85,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         } else {
             //count -= 1
             todos.removeLast()//remove要素がないとエラーが出る
-            //items.remove(at: tableView.indexPath(for: <#T##UITableViewCell#>))
+            //todos.remove(at: tableView.indexPath(for: <#T##UITableViewCell#>))
             tableView.reloadData()
         }
     }
