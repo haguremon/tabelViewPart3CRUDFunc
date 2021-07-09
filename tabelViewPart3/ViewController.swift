@@ -24,16 +24,29 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         UserDefaults.standard.set(todos, forKey: "todos")
         //
         if let text = addToTodoTextField.text {
-            if text.isEmpty || todos.isEmpty { //どちらかが空の時はボタンが押せない
-                //button.isEnabled = false
-            } else {
-                button.isEnabled = true
-                todos.append(text)
-            }
+//            if text.isEmpty && todos.isEmpty {
+//                //button.isEnabled = false
+//                //todos.append(text)
+//            } else if text.isEmpty {
+//                button.isEnabled = true
+//            } else {
+//                todos.append(text)
+//            }
+            todos.append(text)
         }
         tableView.reloadData()
         
     }
+    //tachTextFieldの入力次第でbuttonが押せるかどうかに実装する7/9
+    @IBAction func tachTextField(_ sender: UITextField) {
+        //button.isEnabled = true
+        if addToTodoTextField.text?.count == 0 {
+            button.isEnabled = false
+        } else {
+            button.isEnabled = true
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
             tableView.dataSource = self
             tableView.delegate = self
             addToTodoTextField.delegate = self
-            
+        self.button.isEnabled = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,8 +98,13 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
     
     
     @IBAction func deleteButton(_ sender: UIButton) {
-        if todos.isEmpty {
-            label.text = "セルが空ですよー"
+//        guard todos.isEmpty else {
+//            todos.removeLast()
+//            return
+//        }
+//        tableView.reloadData()
+                if todos.isEmpty {
+            //label.text = "セルが空ですよー"
             //tableView.reloadData()
         } else {
             //count -= 1
