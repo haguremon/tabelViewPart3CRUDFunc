@@ -169,10 +169,20 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         
       
     }
+
+    //accessoryButtonがTapされたら遷移させるー
+    //この二つじゃないといけないらしい.detailButton .detailDisclosureButton
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        //performSegue(withIdentifier: "toSegue", sender: self)//これで遷移できないから下で
+        let view2 = self.storyboard?.instantiateViewController(identifier: "view2") as! View2Controller
+        self.present(view2, animated: true)
+            
+        
+    }
+    @IBAction func exit(seuge: UIStoryboardSegue){}
     
 }
 extension DateFormatter {
-    // テンプレートの定義(例)
     enum Template: String {
         case date = "yMd"     // 2021/1/1
         case time = "Hms"     // 12:39:22

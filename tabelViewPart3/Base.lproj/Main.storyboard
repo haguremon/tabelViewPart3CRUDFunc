@@ -20,11 +20,11 @@
                                 <rect key="frame" x="32" y="65" width="347" height="357"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="q7o-HY-16N">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Cell" id="q7o-HY-16N">
                                         <rect key="frame" x="0.0" y="24.5" width="347" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q7o-HY-16N" id="Owd-pB-bwX">
-                                            <rect key="frame" x="0.0" y="0.0" width="347" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="289" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         </tableViewCellContentView>
@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98O-Yv-CzY">
-                                <rect key="frame" x="127" y="546" width="171" height="30"/>
+                                <rect key="frame" x="127" y="546" width="171.5" height="30"/>
                                 <state key="normal" title="セル保存ボタン"/>
                                 <connections>
                                     <action selector="createButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Z3-tY-6Ty"/>
@@ -70,7 +70,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIN-7K-hx5">
-                                <rect key="frame" x="75" y="710" width="276" height="30"/>
+                                <rect key="frame" x="75" y="710" width="275.5" height="30"/>
                                 <state key="normal" title="特手のセルだけに日付を表示するボタン"/>
                                 <connections>
                                     <action selector="displayAnyCellDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lzn-A2-xm6"/>
@@ -108,11 +108,39 @@
                         <outlet property="button" destination="98O-Yv-CzY" id="As6-2s-D2o"/>
                         <outlet property="label" destination="Vw6-if-MXn" id="aL8-fs-le9"/>
                         <outlet property="tableView" destination="TrA-qg-MbV" id="Me0-FC-HSz"/>
+                        <segue destination="qd0-Sb-pDC" kind="show" identifier="toSegue" id="BYs-Fr-Kwr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="88.392857142857139"/>
+        </scene>
+        <!--View2 Controller-->
+        <scene sceneID="hpg-N8-LIk">
+            <objects>
+                <viewController storyboardIdentifier="view2" modalPresentationStyle="fullScreen" id="qd0-Sb-pDC" customClass="View2Controller" customModule="tabelViewPart3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iBH-8r-lcU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVx-1t-cVV">
+                                <rect key="frame" x="169" y="125" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="戻りボタン"/>
+                                <connections>
+                                    <segue destination="F5E-HM-O8v" kind="unwind" unwindAction="exitWithSeuge:" id="Zxn-gj-fws"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JFw-Je-TGF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YA7-gc-d3j"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rvn-4w-oJc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="F5E-HM-O8v" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="88"/>
         </scene>
     </scenes>
     <resources>
