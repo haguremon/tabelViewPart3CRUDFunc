@@ -24,11 +24,11 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         UserDefaults.standard.set(todos, forKey: "todos")
         //
         if let text = addToTodoTextField.text {
-//            if text.isEmpty && todos.isEmpty {
+//            if text.isEmpty && todos.isEmpty {//もっと簡潔にできそう泣く
 //                //button.isEnabled = false
 //                //todos.append(text)
 //            } else if text.isEmpty {
-//                button.isEnabled = true
+//                button.isEnabled = false
 //            } else {
 //                todos.append(text)
 //            }
@@ -76,6 +76,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         todos.append(addToTodoTextField.text!)//addToTodoTextField.textの値を入れる
         tableView.reloadData()//セルに表示して
         addToTodoTextField.text! = ""//addToTodoTextFieldの値を空にして閉じると
+        button.isEnabled = false //keybordのReturnが押された時にボタンを押せなくした
         return true
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
