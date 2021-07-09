@@ -147,5 +147,44 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         present(dialog, animated: true)
     }
     
+    @IBAction func displayAnyCellDate(_ sender: UIButton) {
+      
+    //todosの中身がからのときにエラーが出るからこれを押したとこいにから文字が入ってるもっといい方法があるはずだけど
+        if todos.count > 6{
+            let f = DateFormatter()
+            f.setTemplate(.full)
+            let now = Date()
+            todos[5] = f.string(from: now)
+            let indexPaths = [IndexPath(row: 5, section: 0)]//ここでindexPathを指定
+            let animations: [UITableView.RowAnimation] = [.automatic,.bottom,.fade,.left,.middle,.none,.right,.top]
+        
+            let animation = animations.randomElement()
+            tableView.reloadRows(at: indexPaths, with: animation!)
+            
+        }else {
+            tableView.reloadData()
+            
+        }
+        
+        
+      
+    }
+    
+}
+extension DateFormatter {
+    // テンプレートの定義(例)
+    enum Template: String {
+        case date = "yMd"     // 2021/1/1
+        case time = "Hms"     // 12:39:22
+        case full = "yMdkHms" // 2021/1/1 12:39:22
+        case onlyHour = "k"   // 17時
+        case era = "GG"       // "西暦" (default) or "平成" (本体設定で和暦を指定している場合)
+        case weekDay = "EEEE" // 日曜日
+    }
+
+    func setTemplate(_ template: Template) {
+        // optionsは拡張用の引数だが使用されていないため常に0
+        dateFormat = DateFormatter.dateFormat(fromTemplate: template.rawValue, options: 0, locale: .current)
+    }
 }
 

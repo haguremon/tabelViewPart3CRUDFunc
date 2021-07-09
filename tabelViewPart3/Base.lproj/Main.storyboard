@@ -32,16 +32,16 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-if-MXn">
-                                <rect key="frame" x="71" y="450" width="284" height="29"/>
+                                <rect key="frame" x="192" y="450" width="41.5" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="DcI-Lj-S3U"/>
+                                    <constraint firstAttribute="height" constant="29" id="Dfs-o0-PoI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98O-Yv-CzY">
-                                <rect key="frame" x="127" y="546" width="170" height="30"/>
+                                <rect key="frame" x="127" y="546" width="171" height="30"/>
                                 <state key="normal" title="セル保存ボタン"/>
                                 <connections>
                                     <action selector="createButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Z3-tY-6Ty"/>
@@ -69,29 +69,38 @@
                                     <action selector="deleteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pJi-r7-tpK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIN-7K-hx5">
+                                <rect key="frame" x="75" y="710" width="276" height="30"/>
+                                <state key="normal" title="特手のセルだけに日付を表示するボタン"/>
+                                <connections>
+                                    <action selector="displayAnyCellDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lzn-A2-xm6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cWr-rM-haz" firstAttribute="top" secondItem="efe-aX-Q5c" secondAttribute="bottom" constant="22" id="1V1-cT-n6F"/>
-                            <constraint firstItem="Vw6-if-MXn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="71" id="3YL-Fi-bNJ"/>
-                            <constraint firstItem="TrA-qg-MbV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="CdV-ZF-8jb"/>
-                            <constraint firstItem="efe-aX-Q5c" firstAttribute="top" secondItem="98O-Yv-CzY" secondAttribute="bottom" constant="22" id="FpF-xw-Wnp"/>
-                            <constraint firstItem="TrA-qg-MbV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="KT2-xa-3d2"/>
-                            <constraint firstItem="eog-or-dVS" firstAttribute="centerX" secondItem="cWr-rM-haz" secondAttribute="centerX" id="NPk-Jm-Pcc"/>
-                            <constraint firstItem="eog-or-dVS" firstAttribute="top" secondItem="Vw6-if-MXn" secondAttribute="bottom" constant="19" id="PCw-dc-zOJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vw6-if-MXn" secondAttribute="trailing" constant="59" id="Y25-YP-mAi"/>
-                            <constraint firstItem="efe-aX-Q5c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YYg-kR-6IV"/>
-                            <constraint firstItem="TrA-qg-MbV" firstAttribute="centerX" secondItem="cWr-rM-haz" secondAttribute="centerX" id="Yo2-Dl-hrP"/>
-                            <constraint firstItem="eog-or-dVS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="127" id="eWr-0H-Idr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="98O-Yv-CzY" secondAttribute="trailing" constant="117" id="ewd-HJ-8fR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cWr-rM-haz" secondAttribute="bottom" constant="182" id="iMG-Hx-mPH"/>
-                            <constraint firstItem="cWr-rM-haz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="182" id="jzW-TJ-SKy"/>
-                            <constraint firstItem="98O-Yv-CzY" firstAttribute="top" secondItem="eog-or-dVS" secondAttribute="bottom" constant="14" id="jze-tP-Bgs"/>
-                            <constraint firstItem="Vw6-if-MXn" firstAttribute="top" secondItem="TrA-qg-MbV" secondAttribute="bottom" constant="28" id="xBW-YH-BiW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TrA-qg-MbV" secondAttribute="trailing" constant="35" id="yMn-My-dxv"/>
-                            <constraint firstItem="efe-aX-Q5c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="191" id="yYn-nR-SPe"/>
-                            <constraint firstItem="eog-or-dVS" firstAttribute="leading" secondItem="98O-Yv-CzY" secondAttribute="leading" id="zix-5w-rpA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vw6-if-MXn" secondAttribute="trailing" constant="180.5" id="2Ni-Z3-TTW"/>
+                            <constraint firstItem="Vw6-if-MXn" firstAttribute="centerX" secondItem="98O-Yv-CzY" secondAttribute="centerX" id="635-In-gaj"/>
+                            <constraint firstItem="TrA-qg-MbV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="9pr-Ge-vdY"/>
+                            <constraint firstItem="eog-or-dVS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="127" id="BJ0-7P-QKW"/>
+                            <constraint firstItem="cWr-rM-haz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="182" id="EqM-Ea-kB4"/>
+                            <constraint firstItem="TrA-qg-MbV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="SgR-vh-9gI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TrA-qg-MbV" secondAttribute="trailing" constant="35" id="T7G-jL-uDq"/>
+                            <constraint firstItem="98O-Yv-CzY" firstAttribute="centerX" secondItem="SIN-7K-hx5" secondAttribute="centerX" id="UPm-ss-Ynq"/>
+                            <constraint firstItem="efe-aX-Q5c" firstAttribute="top" secondItem="98O-Yv-CzY" secondAttribute="bottom" constant="22" id="Xt9-FJ-XjI"/>
+                            <constraint firstItem="efe-aX-Q5c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="191" id="cTZ-3X-OgA"/>
+                            <constraint firstItem="eog-or-dVS" firstAttribute="leading" secondItem="98O-Yv-CzY" secondAttribute="leading" id="cim-OU-6Ph"/>
+                            <constraint firstItem="TrA-qg-MbV" firstAttribute="centerX" secondItem="eog-or-dVS" secondAttribute="centerX" id="iBE-8e-2Jk"/>
+                            <constraint firstItem="efe-aX-Q5c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ksu-WR-zYE"/>
+                            <constraint firstItem="98O-Yv-CzY" firstAttribute="top" secondItem="eog-or-dVS" secondAttribute="bottom" constant="14" id="oHv-NU-95K"/>
+                            <constraint firstItem="cWr-rM-haz" firstAttribute="top" secondItem="efe-aX-Q5c" secondAttribute="bottom" constant="22" id="s9R-Bx-m6e"/>
+                            <constraint firstItem="SIN-7K-hx5" firstAttribute="top" secondItem="cWr-rM-haz" secondAttribute="bottom" constant="30" id="thP-Tl-TEN"/>
+                            <constraint firstItem="eog-or-dVS" firstAttribute="top" secondItem="Vw6-if-MXn" secondAttribute="bottom" constant="19" id="uZZ-i0-Iy7"/>
+                            <constraint firstItem="eog-or-dVS" firstAttribute="centerX" secondItem="cWr-rM-haz" secondAttribute="centerX" id="wbP-Xb-CRC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SIN-7K-hx5" secondAttribute="bottom" constant="122" id="x4K-53-XYb"/>
+                            <constraint firstItem="Vw6-if-MXn" firstAttribute="top" secondItem="TrA-qg-MbV" secondAttribute="bottom" constant="28" id="xJg-Yt-LTH"/>
+                            <constraint firstItem="SIN-7K-hx5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="ydu-kr-qCy"/>
                         </constraints>
                     </view>
                     <connections>
