@@ -22,10 +22,13 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         //count += 1
         UserDefaults.standard.set(todos, forKey: "todos")
         if let text = addToTodoTextField.text {
+            if text.isEmpty {
+                label.text = "値を入れてください"
+            } else {
             todos.append(text)
-        } else {
-            print("")
+            }
         }
+        
         tableView.reloadData()
     }
     
@@ -93,10 +96,19 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
     //    @IBAction func upDateButton(_ sender: UIButton) {
 //        tableView.reloadData()
 //    }
-    
+   //全消去にメッセージを流す  dialogを促す機能を実装7/9/13:00
     @IBAction func allDeleteButton(_ sender: UIButton) {
-        todos.removeAll()
-        tableView.reloadData()
+        let dialog = UIAlertController(title: "全消去", message: "全てのセルを消去しますか？", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel)
+        dialog.addAction(cancel)
+        let ok = UIAlertAction(title: "OK", style: .default) { (alert) in
+            
+            self.todos.removeAll()
+            UserDefaults.standard.removeObject(forKey: "todos")//セルに保存されてる値を全て削除
+            self.tableView.reloadData()
+        }
+        dialog.addAction(ok)
+        present(dialog, animated: true)
     }
     
 }
