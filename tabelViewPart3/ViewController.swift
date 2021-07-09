@@ -23,7 +23,13 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         //count += 1
         UserDefaults.standard.set(todos, forKey: "todos")
         //
-        if let text = addToTodoTextField.text {
+        if let text1 = addToTodoTextField.text {
+            guard text1.isEmpty else {
+                todos.append(text1)
+                return
+            }
+        }
+        tableView.reloadData()
 //            if text.isEmpty && todos.isEmpty {//もっと簡潔にできそう泣く
 //                //button.isEnabled = false
 //                //todos.append(text)
@@ -32,19 +38,18 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
 //            } else {
 //                todos.append(text)
 //            }
-            todos.append(text)
-        }
-        tableView.reloadData()
+    
+            
         
     }
     //tachTextFieldの入力次第でbuttonが押せるかどうかに実装する7/9
     @IBAction func tachTextField(_ sender: UITextField) {
-        //button.isEnabled = true
-        if addToTodoTextField.text?.count == 0 {
-            button.isEnabled = false
-        } else {
-            button.isEnabled = true
-        }
+        button.isEnabled = true
+//        if addToTodoTextField.text?.count == 0 {
+//            button.isEnabled = false
+//        } else {
+//            button.isEnabled = true
+//        }
     }
     
     
@@ -70,19 +75,23 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         cell.textLabel?.text = todos[indexPath.row]
         return cell
     }
-    //keybordのReturnが押された時に値を配列に追加してセルに表示する
+    //keybordのReturnが押された時に値を配列に追加してセルに表示すると
+    //ここを押しても保存するようにする
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()//キーボードを閉じて
+        if addToTodoTextField.text!.count > 0 {
         todos.append(addToTodoTextField.text!)//addToTodoTextField.textの値を入れる
-        tableView.reloadData()//セルに表示して
+        }
+            tableView.reloadData()//セルに表示して
         addToTodoTextField.text! = ""//addToTodoTextFieldの値を空にして閉じると
-        button.isEnabled = false //keybordのReturnが押された時にボタンを押せなくした
         return true
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
+    
+    //ここから下は削除機能
     //この二つでスライドしてセルを削除する機能を作ることができる
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
@@ -97,7 +106,9 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         }
     }
     
+   
     
+    //一番下のセルを削除
     @IBAction func deleteButton(_ sender: UIButton) {
 //        guard todos.isEmpty else {
 //            todos.removeLast()
@@ -118,7 +129,9 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
     //    @IBAction func upDateButton(_ sender: UIButton) {
 //        tableView.reloadData()
 //    }
-   //全消去にメッセージを流す  dialogを促す機能を実装7/9/13:00
+   
+    
+    //全消去にメッセージを流す  dialogを促す機能を実装7/9/13:00
     @IBAction func allDeleteButton(_ sender: UIButton) {
         let dialog = UIAlertController(title: "全消去", message: "全てのセルを消去しますか？", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "キャンセル", style: .cancel)
